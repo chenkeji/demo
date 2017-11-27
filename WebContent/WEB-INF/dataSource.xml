@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dataSources>
+	<dataSource name="DSOracle"
+		class="maplite.datasource.db.oracle.OracleDataSource">
+		<connection 
+			connectType="dbcp"
+			url="jdbc:oracle:thin:@122.13.0.235:1521:ORCL" 
+			user="gis440100000000"
+			password="gis440100000000" 
+			initialSize="1" 
+			maxIdle="5" 
+			minIdle="2" 
+			maxActive="10" />
+		<tables>
+			<table 
+				name="BASE_BUS_STATION" 
+				geometryType="Point" 
+				description="公交站"
+				oidColumn="ID" 
+				xColumn="BDX" 
+				yColumn="BDY">
+				<columns>
+					<column name="ID" aliasName="编号" />
+					<column name="NAME" aliasName="名称" />
+					<column name="LINES" aliasName="线路" />
+				</columns>
+			</table>
+		</tables>
+	</dataSource>
+</dataSources>
