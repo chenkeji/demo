@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" >
+<meta http-equiv="imagetoolbar" content="false" />
+<script type="text/javascript" charset="UTF-8"
+	src="map?SERVICE=API&TYPE=JSONP&charset=UTF-8"></script>
+<title>Demo - Maplite WebGIS Platform</title>
+<STYLE>
+v\:* {
+	BEHAVIOR: url(#default#VML)
+}
+</STYLE>
+</head>
+
+<body style="overflow-x: hidden; overflow-y: hidden">
+	<div id="theMapDiv"
+		style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 1;">
+	</div>
+
+	<div id="divSample"
+		style="position: absolute; left: 80px; top: 10px; width: 900; height: 50; padding:10px; z-index: 2; background-color: white; border: 1px solid #3988fb;">
+		  <input type="button" name="button" id="button" value="显示公交车站图层" onclick="showBus()"/>
+		  <input type="button" name="button" id="button" value="隐藏公交车站图层" onclick="hideBus()"/>
+		  <input type="button" name="button" id="button" value="全图" onclick="wholeExtent()">
+		  <input type="button" name="button" id="button" value="平移" onclick="pan()">
+		  <input type="button" name="button" id="button" value="放大" onclick="zoomIn()">
+		  <input type="button" name="button" id="button" value="放大地图" onclick="zoomInTool()">
+		  <input type="button" name="button" id="button" value="加点" onclick="addpoint()">
+		  <input type="button" name="button" id="button" value="打印" onclick="printMap()">
+	</div>
+	
+
+</body>
+<script language="javascript">
+	var mapApp = MapApplication.getInstance("theMapDiv");
+	
+	// 显示
+	function showBus(){
+		var layer = mapApp.getLayer("BusLayer");
+		layer.show();
+	}
+	
+	// 隐藏
+	function hideBus(){
+		var layer = mapApp.getLayer("BusLayer");
+		layer.hide();
+	}
+	function zoomIn(){
+		mapApp.zoomIn();
+	}
+	function zoomInTool(){
+		mapApp.zoomInTool();
+	}
+	function wholeExtent(){
+		mapApp.wholeExtent();
+	}
+	function pan(){
+		mapApp.pan();
+	}
+	function printMap(){
+		mapApp.printMap();
+	}
+	function addpoint(){
+		var p=new Point('114.09,22.53',1);
+		p.setText('第一个点');
+		mapApp.addGeometry(p);
+		p.show();
+	}
+	
+	
+</script>
+</html>

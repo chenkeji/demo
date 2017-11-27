@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<map 
+	name="mtmap" 
+	description="深圳地图"
+	wholeExtent="113.6835,22.2401,114.6586,22.8578"
+	minLevel="8" 
+	maxLevel="19" 
+	initLevel="10"
+	copyright="&amp;copy; 2015-2016 Maplite"
+	view="MAP.ZOOM_SLIDER | MAP.COPYRIGHT | MAP.MAP_SCALE | MAP.TILE_SERVICE_LABEL | MAP.OVERVIEW"
+	isDragInertia="false" 
+	isZoomSliderAnimated="false"
+	isZoomToolAnimated="false" 
+	hotspotRetrieveWay="GetByScreen">
+	
+	<tileServices>
+		<tileService name="地图">
+			<tileLayers>
+				<tileLayer type="2"
+					url="http://online3.map.bdimg.com/onlinelabel/?qt=tile&amp;x={x}&amp;y={y}&amp;z={z}&amp;styles=pl&amp;udt=20160311&amp;scaler=1&amp;p=1" />
+			</tileLayers>
+		</tileService>
+	</tileServices>
+	
+	<layers>
+        <layer
+            type="VectorLayer"
+            name="BusLayer"
+            dataSource="DSOracle"
+            featureClass="BASE_BUS_STATION"
+            aliasName="公交站台"
+            description="公交站台"
+            visible="false"
+            titleFormat="{NAME}"
+            retrieveWay="GetByTile"
+            editAutoUpdate="true"
+            showVectorLevels="13-19">
+			<render
+             	type="SimpleRender"
+             	symbol="pic=(src=bus.png,width=32,height=32)"/>
+        </layer>
+	</layers>
+</map>
